@@ -252,9 +252,9 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 For questions, issues, or collaboration opportunities, please contact:
 
 - **Project Team**:  
-- Osama Abdelhameed — o.abdelhameed@unsw.edu.au  
-- Dr. Nickolaos Koroniotis — n.koroniotis@unsw.edu.au  
-- A/Prof. Benjamin Turnbull — benjamin.turnbull@unsw.edu.au  
+  Osama Abdelhameed — o.abdelhameed@unsw.edu.au  
+  Dr. Nickolaos Koroniotis — n.koroniotis@unsw.edu.au  
+  A/Prof. Benjamin Turnbull — benjamin.turnbull@unsw.edu.au  
 - **Institution**: University of New South Wales (UNSW Canberra)
 - **Issues**: [GitHub Issues](https://github.com/Osama-Abdelhameed/UNSW-IoTSAT/issues)
 
