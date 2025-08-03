@@ -251,7 +251,7 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 For questions, issues, or collaboration opportunities, please contact:
 
-- **Project Team**: o.abdelhameed@unsw.edu.au
+- **Project Team**: o.abdelhameed@unsw.edu.au, n.koroniotis@unsw.edu.au, benjamin.turnbull@unsw.edu.au
 - **Institution**: University of New South Wales (UNSW Canberra)
 - **Issues**: [GitHub Issues](https://github.com/Osama-Abdelhameed/UNSW-IoTSAT/issues)
 
