@@ -1,0 +1,550 @@
+options:
+  parameters:
+    author: sat1
+    catch_exceptions: 'True'
+    category: '[GRC Hier Blocks]'
+    cmake_opt: ''
+    comment: ''
+    copyright: ''
+    description: ''
+    gen_cmake: 'On'
+    gen_linking: dynamic
+    generate_options: qt_gui
+    hier_block_src_path: '.:'
+    id: Ground_Station
+    max_nouts: '0'
+    output_language: python
+    placement: (0,0)
+    qt_qss_theme: ''
+    realtime_scheduling: ''
+    run: 'True'
+    run_command: '{python} -u {filename}'
+    run_options: prompt
+    sizing_mode: fixed
+    thread_safe_setters: ''
+    title: Ground_Station
+    window_size: (1000,1000)
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [8, 8]
+    rotation: 0
+    state: enabled
+
+blocks:
+- name: Rx_freq_1
+  id: variable
+  parameters:
+    comment: ''
+    value: 915e6
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [800, 32.0]
+    rotation: 0
+    state: enabled
+- name: Rx_freq_2
+  id: variable
+  parameters:
+    comment: ''
+    value: 917e6
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [904, 32.0]
+    rotation: 0
+    state: enabled
+- name: nfilts
+  id: variable
+  parameters:
+    comment: ''
+    value: '32'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [272, 24.0]
+    rotation: 0
+    state: enabled
+- name: samp_rate
+  id: variable
+  parameters:
+    comment: ''
+    value: 50e3
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [168, 24.0]
+    rotation: 0
+    state: enabled
+- name: sps
+  id: variable
+  parameters:
+    comment: ''
+    value: '4'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [360, 24.0]
+    rotation: 0
+    state: enabled
+- name: variable_constellation_1
+  id: variable_constellation
+  parameters:
+    comment: ''
+    const_points: '[1, -1]'
+    dims: '1'
+    normalization: digital.constellation.AMPLITUDE_NORMALIZATION
+    npwr: '1.0'
+    precision: '8'
+    rot_sym: '4'
+    soft_dec_lut: None
+    sym_map: '[0,1]'
+    type: bpsk
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [616, 24.0]
+    rotation: 0
+    state: enabled
+- name: CCSDS_sync_word
+  id: parameter
+  parameters:
+    alias: ''
+    comment: ''
+    hide: none
+    label: sync_word
+    short_id: ''
+    type: ''
+    value: '"00011010110011111111110000011101"'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [432, 24.0]
+    rotation: 0
+    state: enabled
+- name: Packet_Length
+  id: parameter
+  parameters:
+    alias: ''
+    comment: ''
+    hide: none
+    label: ''
+    short_id: ''
+    type: ''
+    value: '241'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [0, 152.0]
+    rotation: 0
+    state: enabled
+- name: blocks_file_sink_0_0_0
+  id: blocks_file_sink
+  parameters:
+    affinity: ''
+    alias: ''
+    append: 'False'
+    comment: ''
+    file: /home/user/satellite_2/satellite2/sat1.txt
+    type: byte
+    unbuffered: 'False'
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [2288, 336.0]
+    rotation: 0
+    state: enabled
+- name: blocks_file_sink_0_0_0_0
+  id: blocks_file_sink
+  parameters:
+    affinity: ''
+    alias: ''
+    append: 'False'
+    comment: ''
+    file: /home/sat1/satellite_1/satellite1/sat2.txt
+    type: byte
+    unbuffered: 'False'
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [2248, 640.0]
+    rotation: 0
+    state: enabled
+- name: blocks_repack_bits_bb_0_0_0_0_0
+  id: blocks_repack_bits_bb
+  parameters:
+    affinity: ''
+    alias: ''
+    align_output: 'False'
+    comment: Tagged Stream to PDU block up ahead needs packed bytes
+    endianness: gr.GR_MSB_FIRST
+    k: '1'
+    l: '8'
+    len_tag_key: '"packet_len"'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1776, 336.0]
+    rotation: 0
+    state: enabled
+- name: blocks_repack_bits_bb_0_0_0_0_0_0
+  id: blocks_repack_bits_bb
+  parameters:
+    affinity: ''
+    alias: ''
+    align_output: 'False'
+    comment: Tagged Stream to PDU block up ahead needs packed bytes
+    endianness: gr.GR_MSB_FIRST
+    k: '1'
+    l: '8'
+    len_tag_key: '"packet_len"'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1728, 656.0]
+    rotation: 0
+    state: enabled
+- name: blocks_unpack_k_bits_bb_0_0_0
+  id: blocks_unpack_k_bits_bb
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    k: '1'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1280, 352.0]
+    rotation: 0
+    state: enabled
+- name: blocks_unpack_k_bits_bb_0_0_0_0
+  id: blocks_unpack_k_bits_bb
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    k: '1'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1232, 656.0]
+    rotation: 0
+    state: enabled
+- name: digital_constellation_decoder_cb_1_0
+  id: digital_constellation_decoder_cb
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    constellation: variable_constellation_1
+    maxoutbuf: '0'
+    minoutbuf: '0'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [800, 352.0]
+    rotation: 0
+    state: enabled
+- name: digital_constellation_decoder_cb_1_0_0
+  id: digital_constellation_decoder_cb
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    constellation: variable_constellation_1
+    maxoutbuf: '0'
+    minoutbuf: '0'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [752, 656.0]
+    rotation: 0
+    state: enabled
+- name: digital_correlate_access_code_xx_ts_1_0
+  id: digital_correlate_access_code_xx_ts
+  parameters:
+    access_code: CCSDS_sync_word
+    affinity: ''
+    alias: ''
+    comment: Correlates with access code to extract the payload.
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    tagname: '"packet_len"'
+    threshold: '0'
+    type: byte
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1472, 336.0]
+    rotation: 0
+    state: enabled
+- name: digital_correlate_access_code_xx_ts_1_0_0
+  id: digital_correlate_access_code_xx_ts
+  parameters:
+    access_code: CCSDS_sync_word
+    affinity: ''
+    alias: ''
+    comment: Correlates with access code to extract the payload.
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    tagname: '"packet_len"'
+    threshold: '0'
+    type: byte
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1424, 640.0]
+    rotation: 0
+    state: enabled
+- name: digital_costas_loop_cc_2_0
+  id: digital_costas_loop_cc
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    order: '2'
+    use_snr: 'False'
+    w: '0.00628'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [576, 352.0]
+    rotation: 0
+    state: enabled
+- name: digital_costas_loop_cc_2_0_0
+  id: digital_costas_loop_cc
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    order: '2'
+    use_snr: 'False'
+    w: '0.00628'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [528, 672.0]
+    rotation: 0
+    state: enabled
+- name: digital_crc32_bb_0
+  id: digital_crc32_bb
+  parameters:
+    affinity: ''
+    alias: ''
+    check: 'True'
+    comment: ''
+    lengthtagname: '"packet_len"'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    packed: 'True'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [2016, 336.0]
+    rotation: 0
+    state: enabled
+- name: digital_crc32_bb_0_0
+  id: digital_crc32_bb
+  parameters:
+    affinity: ''
+    alias: ''
+    check: 'True'
+    comment: ''
+    lengthtagname: '"packet_len"'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    packed: 'True'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1968, 640.0]
+    rotation: 0
+    state: enabled
+- name: digital_diff_decoder_bb_0
+  id: digital_diff_decoder_bb
+  parameters:
+    affinity: ''
+    alias: ''
+    coding: digital.DIFF_DIFFERENTIAL
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    modulus: '2'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1056, 336.0]
+    rotation: 0
+    state: enabled
+- name: digital_diff_decoder_bb_0_0
+  id: digital_diff_decoder_bb
+  parameters:
+    affinity: ''
+    alias: ''
+    coding: digital.DIFF_DIFFERENTIAL
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    modulus: '2'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1008, 656.0]
+    rotation: 0
+    state: enabled
+- name: digital_pfb_clock_sync_xxx_0
+  id: digital_pfb_clock_sync_xxx
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    filter_size: '32'
+    init_phase: '16'
+    loop_bw: '0.0628'
+    max_dev: '1.5'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    osps: '1'
+    sps: '4'
+    taps: firdes.root_raised_cosine(nfilts, nfilts, 1.0/float(sps), 0.35, 11*sps*nfilts)
+    type: ccf
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [280, 372.0]
+    rotation: 0
+    state: enabled
+- name: digital_pfb_clock_sync_xxx_0_0
+  id: digital_pfb_clock_sync_xxx
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    filter_size: '32'
+    init_phase: '16'
+    loop_bw: '0.0628'
+    max_dev: '1.5'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    osps: '1'
+    sps: '4'
+    taps: firdes.root_raised_cosine(nfilts, nfilts, 1.0/float(sps), 0.35, 11*sps*nfilts)
+    type: ccf
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [288, 676.0]
+    rotation: 0
+    state: enabled
+- name: soapy_bladerf_source_0
+  id: soapy_bladerf_source
+  parameters:
+    affinity: ''
+    alias: ''
+    bandwidth: samp_rate*4
+    center_freq: Rx_freq_1
+    comment: ''
+    dev_args: driver=bladerf,buffer_count=32, buffer_size=16384
+    freq_correction: '0'
+    gain: '45.0'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    samp_rate: samp_rate*4
+    type: fc32
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [272, 192.0]
+    rotation: 0
+    state: enabled
+- name: soapy_bladerf_source_0_0
+  id: soapy_bladerf_source
+  parameters:
+    affinity: ''
+    alias: ''
+    bandwidth: samp_rate*4
+    center_freq: Rx_freq_2
+    comment: ''
+    dev_args: driver=bladerf,buffer_count=32, buffer_size=16384
+    freq_correction: '0'
+    gain: '45.0'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    samp_rate: samp_rate*4
+    type: fc32
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [288, 552.0]
+    rotation: 0
+    state: enabled
+
+connections:
+- [blocks_repack_bits_bb_0_0_0_0_0, '0', digital_crc32_bb_0, '0']
+- [blocks_repack_bits_bb_0_0_0_0_0_0, '0', digital_crc32_bb_0_0, '0']
+- [blocks_unpack_k_bits_bb_0_0_0, '0', digital_correlate_access_code_xx_ts_1_0, '0']
+- [blocks_unpack_k_bits_bb_0_0_0_0, '0', digital_correlate_access_code_xx_ts_1_0_0,
+  '0']
+- [digital_constellation_decoder_cb_1_0, '0', digital_diff_decoder_bb_0, '0']
+- [digital_constellation_decoder_cb_1_0_0, '0', digital_diff_decoder_bb_0_0, '0']
+- [digital_correlate_access_code_xx_ts_1_0, '0', blocks_repack_bits_bb_0_0_0_0_0,
+  '0']
+- [digital_correlate_access_code_xx_ts_1_0_0, '0', blocks_repack_bits_bb_0_0_0_0_0_0,
+  '0']
+- [digital_costas_loop_cc_2_0, '0', digital_constellation_decoder_cb_1_0, '0']
+- [digital_costas_loop_cc_2_0_0, '0', digital_constellation_decoder_cb_1_0_0, '0']
+- [digital_crc32_bb_0, '0', blocks_file_sink_0_0_0, '0']
+- [digital_crc32_bb_0_0, '0', blocks_file_sink_0_0_0_0, '0']
+- [digital_diff_decoder_bb_0, '0', blocks_unpack_k_bits_bb_0_0_0, '0']
+- [digital_diff_decoder_bb_0_0, '0', blocks_unpack_k_bits_bb_0_0_0_0, '0']
+- [digital_pfb_clock_sync_xxx_0, '0', digital_costas_loop_cc_2_0, '0']
+- [digital_pfb_clock_sync_xxx_0_0, '0', digital_costas_loop_cc_2_0_0, '0']
+- [soapy_bladerf_source_0, '0', digital_pfb_clock_sync_xxx_0, '0']
+- [soapy_bladerf_source_0_0, '0', digital_pfb_clock_sync_xxx_0_0, '0']
+
+metadata:
+  file_format: 1
+  grc_version: 3.10.9.2
