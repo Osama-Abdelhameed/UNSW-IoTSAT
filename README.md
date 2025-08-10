@@ -5,7 +5,6 @@
 [![Dataset](https://img.shields.io/badge/dataset-available-green.svg)](#repository-contents)
 
 
-## 📂 Dataset Access
 The dataset is available on [UNSW SharePoint](https://unsw-my.sharepoint.com/:f:/g/personal/z5389081_ad_unsw_edu_au/Eop81Fk7c2lBnqGydQL0b_cBoZLxuSGEtUOfVFMK0l2lvw?e=OMLEhm).
 
 **UNSW-IoTSAT** is a protocol-compliant dataset and toolset developed to support research in cybersecurity for Internet of Things (IoT)-enabled satellite communication systems. It provides a realistic simulation environment for generating telemetry data, injecting cyber-physical attacks, and evaluating intrusion detection models under space-relevant constraints.
