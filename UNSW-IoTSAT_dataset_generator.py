@@ -115,8 +115,13 @@ class EnhancedRFAnalyzer:
         
         # Other RF parameters
         freq_offset = np.random.uniform(-100, 100)
-        velocity_ms = 7800
-        max_doppler = (velocity_ms / 3e8) * self.rx_freq
+        velocity_ms = 7800  # LEO orbital speed (m/s)
+        # Scale Doppler envelope by slant-range geometry: near-zenith passes
+        # produce a reduced line-of-sight velocity component (closer to zero),
+        # while horizon-grazing passes approach the full LEO envelope.
+        horizon_slant_km = 2500.0
+        geom_scale = min(1.0, distance_km / horizon_slant_km)
+        max_doppler = (velocity_ms / 3e8) * self.rx_freq * geom_scale
         doppler_shift = np.random.uniform(-max_doppler, max_doppler)
         
         crc_errors = 1 if np.random.random() < per else 0
