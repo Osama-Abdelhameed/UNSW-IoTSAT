@@ -272,14 +272,6 @@ Released separately via `CCSDS_field_augmentation.py`, these three columns expos
 
 ---
 
-## Baseline ML training
-
-The baseline machine-learning results reported in the paper were trained on the **109-feature main release** (49 base + 60 engineered). The three CCSDS companion features were released as a supplementary artefact for researchers pursuing protocol-aware intrusion detection and are **not** part of the baseline feature set.
-
-The feature set of the 109-feature main release has **not changed** between revisions of the paper; the re-categorisation applied in this documentation (e.g., moving change-rate and previous-record features from `Telemetry` to `Engineered`) is a labelling correction, not a dataset modification. The underlying column values and the baseline ML results are therefore unchanged.
-
----
-
 ## Reproducibility and provenance
 
 | Artefact | Produces | Notes |
