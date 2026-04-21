@@ -7,7 +7,7 @@ UNSW-IoTSAT is a labelled cybersecurity dataset generated from a **hybrid satell
 - **Total records:** 404,798
 - **Main-release features:** 109 (49 base + 60 engineered)
 - **CCSDS companion features:** 3 (released separately via `CCSDS_field_augmentation.py`)
-- **Repository:** https://github.com/Osama-Abdelhameed/UNSW-IoTSAT
+
 
 ### Hybrid architecture — what is hardware, what is simulated
 
@@ -28,9 +28,9 @@ The satellite-node hardware platform (Raspberry Pi + sensor stack) includes:
 | Adafruit **INA228** | Voltage, current, and power monitoring | ✅ Yes |
 | Adafruit **LIS3MDL** | 3-axis magnetometer | ✅ Yes |
 | Adafruit **VCNL4040** | Ambient-light and proximity | ✅ Yes |
-| Adafruit **PCT2075** | Temperature (spacecraft thermal monitoring) | ⏳ Planned future release |
-| Adafruit **BNO055** | 9-DoF IMU (accelerometer, gyroscope, magnetometer) | ⏳ Planned future release |
-| Adafruit **ICM-20948** | 9-DoF IMU (enhanced motion and orientation) | ⏳ Planned future release |
+| Adafruit **PCT2075** | Temperature (spacecraft thermal monitoring) | ✅ Yes |
+| Adafruit **BNO055** | 9-DoF IMU (accelerometer, gyroscope, magnetometer) | ✅ Yes |
+| Adafruit **ICM-20948** | 9-DoF IMU (enhanced motion and orientation) | ✅ Yes |
 | SparkFun **MAX-M10S** (Qwiic) | GNSS receiver | ⏳ Planned future release (orbital trajectory simulated in this release) |
 
 The ground-station software stack uses GNU Radio on a host PC with a USRP-class SDR and implements CCSDS-compliant ASM correlation and FECF CRC verification on every received frame.
