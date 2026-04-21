@@ -97,9 +97,9 @@ def augment(input_csv, output_csv, seed=42):
     n = len(df)
     print(f"  {n:,} records loaded")
 
-    # Detect the satellite-id column. Adjust this if your CSV uses a different name.
+    # Detect the satellite-id column.
     sat_col = None
-    for candidate in ('Satellite_ID', 'SatelliteID', 'satellite_id', 'Satellite'):
+    for candidate in ('SatelliteID'):
         if candidate in df.columns:
             sat_col = candidate
             break
