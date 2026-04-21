@@ -20,6 +20,23 @@ UNSW-IoTSAT is produced by a ground-based laboratory testbed that cannot generat
 Each column in the feature list below carries an explicit **Origin** (`MEASURED`, `COMPUTED`, `SIMULATED`, `LABEL`) and a **Source** (the hardware chip, software module, or script that produces the value). This makes the hardware/simulation boundary transparent to downstream researchers.
 
 
+### Hardware inventory
+
+The satellite-node hardware platform (Raspberry Pi 4 Model B + Adafruit sensor stack) carries the following sensors and receivers. The "Sampled in this release" column indicates whether the sensor's readings are exported to the released 109-feature CSV.
+
+| Sensor / receiver | Role | Sampled in this release? |
+|---|---|:---:|
+| Adafruit **INA228** | Power, voltage, current | ✅ Yes — `Shunt_Voltage_V`, `Current_A`, `Power_W` |
+| Adafruit **LIS3MDL** | 3-axis magnetometer | ✅ Yes — `Mag_X_uT`, `Mag_Y_uT`, `Mag_Z_uT` |
+| Adafruit **VCNL4040** | Ambient light / proximity | ✅ Yes — `Ambient_Light_Lux`, `Proximity` |
+| Adafruit **PCT2075** | Temperature (spacecraft thermal monitoring) | 🔌 Installed but not sampled in this release |
+| Adafruit **BNO055** | 9-DoF IMU (accelerometer, gyroscope, magnetometer) | 🔌 Installed but not sampled in this release |
+| Adafruit **ICM-20948** | 9-DoF IMU (enhanced motion and orientation) | 🔌 Installed but not sampled in this release |
+| SparkFun **MAX-M10S** (Qwiic) | GNSS receiver | 🔌 Installed but not sampled in this release (`USE_GPS_MODULE = False` in `Sensors_data_collector.py`; orbital trajectory simulated instead) |
+
+The PCT2075, BNO055, ICM-20948, and MAX-M10S are **physically installed** on the satellite-node hardware platform as part of the full sensor suite. For this dataset release, `Sensors_data_collector.py` samples only the INA228, LIS3MDL, and VCNL4040 sensors, keeping the telemetry frame format consistent with the 109-feature CSV schema. Integration of the remaining sensors (temperature, 9-DoF IMU, live GNSS) into the telemetry stream is reserved for the next dataset release.
+
+
 ### Feature counts by category
 
 | Category         | Base | Engineered | Companion | Total |
