@@ -19,21 +19,6 @@ UNSW-IoTSAT is produced by a ground-based laboratory testbed that cannot generat
 
 Each column in the feature list below carries an explicit **Origin** (`MEASURED`, `COMPUTED`, `SIMULATED`, `LABEL`) and a **Source** (the hardware chip, software module, or script that produces the value). This makes the hardware/simulation boundary transparent to downstream researchers.
 
-### Hardware inventory
-
-The satellite-node hardware platform (Raspberry Pi + sensor stack) includes:
-
-| Sensor / receiver | Role | Exposed in this release? |
-|---|---|:---:|
-| Adafruit **INA228** | Voltage, current, and power monitoring | ✅ Yes |
-| Adafruit **LIS3MDL** | 3-axis magnetometer | ✅ Yes |
-| Adafruit **VCNL4040** | Ambient-light and proximity | ✅ Yes |
-| Adafruit **PCT2075** | Temperature (spacecraft thermal monitoring) | ✅ Yes |
-| Adafruit **BNO055** | 9-DoF IMU (accelerometer, gyroscope, magnetometer) | ✅ Yes |
-| Adafruit **ICM-20948** | 9-DoF IMU (enhanced motion and orientation) | ✅ Yes |
-| SparkFun **MAX-M10S** (Qwiic) | GNSS receiver | ⏳ Planned future release (orbital trajectory simulated in this release) |
-
-The ground-station software stack uses GNU Radio on a host PC with a USRP-class SDR and implements CCSDS-compliant ASM correlation and FECF CRC verification on every received frame.
 
 ### Feature counts by category
 
