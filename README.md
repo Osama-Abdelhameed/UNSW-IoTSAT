@@ -47,6 +47,7 @@ This repository includes a collection of Python scripts designed to simulate sat
   - Adafruit PCT2075 (Temperature)
   - Adafruit INA228 (Current/Voltage)
   - Adafruit LIS3MDL (Magnetometer)
+  - Adafruit VCNL4040 (Ambient Light / Proximity)
   - Adafruit BNO055 (9-DoF Orientation)
   - Adafruit ICM-20948 (IMU)
 
